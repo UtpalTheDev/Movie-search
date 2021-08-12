@@ -9,15 +9,15 @@ export function Search({page}){
     function handleInput(value){
         setInput(value)
     }
-    async function searchCall(){
+    async function searchCall(value){
         try{
-            if(1){    
-            let response = await axios.get(`https://www.omdbapi.com/?s=${currentSearch}&apikey=7089fccf&page=${page}`)
+            if(input.length>2){    
+            let response = await axios.get(`https://www.omdbapi.com/?s=${value}&apikey=7089fccf&page=${page}`)
             
             console.log(response)
             if(response.status === 200)
             {   
-                
+                setCurrentSearch(input)
                 setData(response.data.Search)
             }
             }
@@ -26,17 +26,23 @@ export function Search({page}){
             console.log(error)
         }
     }
+
     useEffect(()=>{
-        searchCall()
+        searchCall(currentSearch)
     },[page])
+
     return(
-        <form className="flex justify-center py-3" onSubmit={(e)=>{
+        <>
+        <form className="flex justify-center py-3 px-3" onSubmit={(e)=>{
             e.preventDefault()
-            setCurrentSearch(e.target.value)
-            searchCall()
+            searchCall(input)
         }}>
-        <input type="text" className="border-2 border-gray-500" value={input} onChange={(e)=>{handleInput(e.target.value)}}/>
-        <button className="bg-blue-300 px-1 text-white font-semibold" type="submit">Search</button>
+        <input type="text" className="border border-gray-200 px-2 w-full max-w-xs py-1 rounded-l-md" value={input} onChange={(e)=>{handleInput(e.target.value)}}/>
+        <button className="bg-blue-300 px-2 text-white font-semibold" type="submit">Search</button>
         </form>
+        { input.length<3 && <div className="text-xs text-red-500 text-center">Enter atleast 2 letter to search </div>
+        }
+        
+        </>
     )
 }

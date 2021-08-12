@@ -6,6 +6,7 @@ const ContextVariable = createContext();
 export default function ContextProvider({ children }) {
   const [data, setData] = useState(null);
   const [currentSearch, setCurrentSearch] = useState("Batman")
+  const [page, setPage] = useState(1)
 
   // useEffect(() => {
   //   (async () => {
@@ -24,7 +25,7 @@ export default function ContextProvider({ children }) {
   //   })();
   // }, []);
   return (
-    <ContextVariable.Provider value={{ data, setData, currentSearch, setCurrentSearch }}>
+    <ContextVariable.Provider value={{ data, setData, currentSearch, setCurrentSearch,page,setPage }}>
       {children}
     </ContextVariable.Provider>
   );
