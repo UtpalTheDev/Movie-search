@@ -5,25 +5,26 @@ const ContextVariable = createContext();
 
 export default function ContextProvider({ children }) {
   const [data, setData] = useState(null);
+  const [currentSearch, setCurrentSearch] = useState("Batman")
 
-  useEffect(() => {
-    (async () => {
-      try {
-        let response = await axios.get(
-          "https://www.omdbapi.com/?s=Batman&apikey=7089fccf"
-        );
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       let response = await axios.get(
+  //         "https://www.omdbapi.com/?s=Batman&apikey=7089fccf"
+  //       );
 
-        console.log(response);
-        if (response.status === 200) {
-          setData(response.data.Search);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, []);
+  //       console.log(response);
+  //       if (response.status === 200) {
+  //         setData(response.data.Search);
+  //       }
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   })();
+  // }, []);
   return (
-    <ContextVariable.Provider value={{ data }}>
+    <ContextVariable.Provider value={{ data, setData, currentSearch, setCurrentSearch }}>
       {children}
     </ContextVariable.Provider>
   );
