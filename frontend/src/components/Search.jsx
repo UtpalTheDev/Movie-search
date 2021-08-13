@@ -36,8 +36,8 @@ export function Search({page, setLoading}){
     },[page])
 
     return(
-        <>
-        <form className="flex justify-center py-3 px-3 sticky top-0 bg-white" onSubmit={(e)=>{
+        <div className=" sticky top-0 bg-white">
+        <form className="flex justify-center py-3 px-3" onSubmit={(e)=>{
             e.preventDefault()
             setPage(prev=>1) 
             searchCall(input)
@@ -50,6 +50,6 @@ export function Search({page, setLoading}){
         { input.length<3 && <div className="text-xs text-red-500 text-center">Enter atleast 2 letter to search </div>
         }
         
-        </>
+        </div>
     )
 }
