@@ -3,7 +3,7 @@ import { useProvider } from "../context/Context";
 import axios from "axios"
 export function Search({page}){
 
-    const {setData, setCurrentSearch, currentSearch} = useProvider()
+    const {setData, setCurrentSearch, currentSearch, setPage} = useProvider()
     const [input, setInput] = useState(currentSearch)
     console.log("page",page,currentSearch)
     function handleInput(value){
@@ -12,6 +12,7 @@ export function Search({page}){
     async function searchCall(value){
         try{
             if(input.length>2){    
+               
             let response = await axios.get(`https://www.omdbapi.com/?s=${value}&apikey=7089fccf&page=${page}`)
             
             console.log(response)
@@ -35,6 +36,7 @@ export function Search({page}){
         <>
         <form className="flex justify-center py-3 px-3" onSubmit={(e)=>{
             e.preventDefault()
+            setPage(prev=>1) 
             searchCall(input)
         }}>
         <input type="text" className="border border-gray-200 px-2 w-full max-w-xs py-1 rounded-l-md" value={input} onChange={(e)=>{handleInput(e.target.value)}}/>

@@ -1,7 +1,8 @@
 import { useEffect,useState } from "react"
 import axios from "axios"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import movieError from "../assets/movieError.svg"
+
 export function MovieDetails(){
   const [movieData, setMovieData] = useState(null)  
   const [loading, setLoading] = useState("notLoading")
@@ -33,7 +34,7 @@ export function MovieDetails(){
     {
         loading==="loading" &&
         <div className="fixed inset-1/2">
-            Loding...
+            Loading...
         </div>
     }
     {
@@ -41,6 +42,7 @@ export function MovieDetails(){
         <div className="pt-8 w-full flex justify-center items-center flex-col">
             <img src={movieError} className="w-full max-w-md"/>
             <div>We are not able to get movie details</div>
+            <div className="py-2">Move to <Link to="/" className="bg-black text-white px-2 py-1 rounded-md">Home Page</Link></div>
         </div>
     }
     {
