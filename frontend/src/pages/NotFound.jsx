@@ -1,5 +1,6 @@
 import pageNotFound from "../assets/pageNotFound.svg"
 import {Link} from "react-router-dom"
+
 export function NotFound(){
 
     return(

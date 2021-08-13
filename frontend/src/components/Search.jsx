@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useProvider } from "../context/Context";
 import axios from "axios"
-export function Search({page}){
+
+export function Search({page, setLoading}){
 
     const {setData, setCurrentSearch, currentSearch, setPage} = useProvider()
     const [input, setInput] = useState(currentSearch)
@@ -11,8 +12,8 @@ export function Search({page}){
     }
     async function searchCall(value){
         try{
-            if(input.length>2){    
-               
+            if(input.length > 2){    
+            setLoading("loading")   
             let response = await axios.get(`https://www.omdbapi.com/?s=${value}&apikey=7089fccf&page=${page}`)
             
             console.log(response)
@@ -22,8 +23,10 @@ export function Search({page}){
                 setData(response.data.Search)
             }
             }
+            setLoading("notLoading")
         }
         catch(error){
+            setLoading("notLoading")
             console.log(error)
         }
     }
@@ -34,7 +37,7 @@ export function Search({page}){
 
     return(
         <>
-        <form className="flex justify-center py-3 px-3" onSubmit={(e)=>{
+        <form className="flex justify-center py-3 px-3 sticky top-0 bg-white" onSubmit={(e)=>{
             e.preventDefault()
             setPage(prev=>1) 
             searchCall(input)
