@@ -44,6 +44,7 @@ export function Home() {
             <div> No Search Results </div>
           </div>
        }  
+       
        { (page > 1 || data?.length > 0) && 
           <div className="flex justify-center pb-4 pt-2">
             <button 
