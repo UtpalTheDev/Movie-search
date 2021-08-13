@@ -56,7 +56,7 @@ export function MovieDetails(){
             </div>
             <div className="sm:flex-grow">   
                 <div className="text-2xl p-2 sm:text-4xl sm:pt-0 font-bold">{movieData.Title}</div>
-                <div className="flex pl-2">
+                <div className="flex pl-2 flex-wrap">
                     {movieData.Genre.split(',').map((item,index)=>{
                         return(
                             <div key={item+index}className="px-2 bg-gray-300 text-black-500 max-w-max rounded-md mr-2">
