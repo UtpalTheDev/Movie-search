@@ -14,7 +14,7 @@ export function Search({page, setLoading}){
         try{
             if(input.length > 2){    
             setLoading("loading")   
-            let response = await axios.get(`https://www.omdbapi.com/?s=${value}&apikey=7089fccf&page=${page}`)
+            let response = await axios.get(`https://www.omdbapi.com/?s=${value}&apikey=${process.env.REACT_APP_API_KEY}&page=${page}`)
             
             if(response.status === 200)
             {   
