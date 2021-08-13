@@ -6,7 +6,7 @@ export function Search({page, setLoading}){
 
     const {setData, setCurrentSearch, currentSearch, setPage} = useProvider()
     const [input, setInput] = useState(currentSearch)
-    console.log("page",page,currentSearch)
+
     function handleInput(value){
         setInput(value)
     }
@@ -16,7 +16,6 @@ export function Search({page, setLoading}){
             setLoading("loading")   
             let response = await axios.get(`https://www.omdbapi.com/?s=${value}&apikey=7089fccf&page=${page}`)
             
-            console.log(response)
             if(response.status === 200)
             {   
                 setCurrentSearch(input)
@@ -33,6 +32,7 @@ export function Search({page, setLoading}){
 
     useEffect(()=>{
         searchCall(currentSearch)
+        // eslint-disable-next-line
     },[page])
 
     return(

@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 export function MovieCard({movie}){
 
     return(
-        <div key = {movie.imdbID} className = "sm:flex sm:justify-center w-full h-full "> 
+        <div  className = "sm:flex sm:justify-center w-full h-full "> 
         <Link to = {`/movie/${movie.imdbID}`}
         className="block w-50 sm:w-60 flex flex-col items-center h-full shadow-md" >
           <div className="w-full h-full">

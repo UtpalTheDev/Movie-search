@@ -28,6 +28,7 @@ export function MovieDetails(){
               console.log(error)
           }
       })()
+      // eslint-disable-next-line
   },[])
     return(
     <>
@@ -40,7 +41,9 @@ export function MovieDetails(){
     {
         gotError==="error" &&
         <div className="pt-8 w-full flex justify-center items-center flex-col">
-            <img src={movieError} className="w-full max-w-md"/>
+            <img src={movieError}
+            alt="movieError"
+            className="w-full max-w-md"/>
             <div>We are not able to get movie details</div>
             <div className="py-2">Move to <Link to="/" className="bg-black text-white px-2 py-1 rounded-md">Home Page</Link></div>
         </div>
@@ -56,7 +59,7 @@ export function MovieDetails(){
                 <div className="flex pl-2">
                     {movieData.Genre.split(',').map((item,index)=>{
                         return(
-                            <div key={item+index}class="px-2 bg-gray-300 text-black-500 max-w-max rounded-md mr-2">
+                            <div key={item+index}className="px-2 bg-gray-300 text-black-500 max-w-max rounded-md mr-2">
                                 {item}
                             </div>    
                         )
@@ -90,7 +93,9 @@ export function MovieDetails(){
                             movieData.Actors.split(',').map((actor,index)=>{
                                 return(
                                     <div key={actor+index} className="flex items-center py-1">
-                                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.uYOL9yHT3_FQyVRTCzhW8wHaHa%26pid%3DApi&f=1" className="rounded-full w-8"/>
+                                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.uYOL9yHT3_FQyVRTCzhW8wHaHa%26pid%3DApi&f=1"
+                                        alt="placeholderImage"
+                                        className="rounded-full w-8"/>
                                         <div className="pl-1">{actor}</div>
                                     </div>   
                                 )
