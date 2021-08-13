@@ -59,7 +59,7 @@ export function MovieDetails(){
                 <div className="flex pl-2 flex-wrap">
                     {movieData.Genre.split(',').map((item,index)=>{
                         return(
-                            <div key={item+index}className="px-2 bg-gray-300 text-black-500 max-w-max rounded-md mr-2">
+                            <div key={item+index}className="px-2 bg-gray-300 text-black-500 max-w-max rounded-md mr-2 my-1">
                                 {item}
                             </div>    
                         )
