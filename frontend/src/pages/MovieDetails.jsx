@@ -48,7 +48,7 @@ export function MovieDetails(){
     {
         movieData?.Title &&
         <div className="min-h-screen h-screen flex flex-col sm:flex-row sm:justify-start pt-5 sm:mx-4">
-            <div className="h-2/5 flex justify-center sm:justify-start">
+            <div className="h-2/5 flex justify-center sm:justify-start max-h-60">
                 <img src={`${movieData.Poster}`} alt={`${movieData.Title}`} className="w-full h-full max-w-md rounded-lg sm:w-60 sm:mr-2"/> 
             </div>
             <div className="sm:flex-grow">   
