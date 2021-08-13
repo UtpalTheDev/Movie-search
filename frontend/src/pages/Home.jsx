@@ -5,7 +5,6 @@ import Error from "../assets/Error.svg"
 
 export function Home() {
   const { data,page,setPage } = useProvider();
-
   function prevClick(){
     setPage(prev=>{
       if(prev !== 1){

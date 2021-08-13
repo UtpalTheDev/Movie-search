@@ -11,7 +11,7 @@ export function MovieDetails(){
       (async()=>{
           try{
             setLoading("loading")  
-            let response = await axios.get(`https://www.omdbapi.com/?i=${id}&apikey=7089fccf`)
+            let response = await axios.get(`https://www.omdbapi.com/?i=${id}&apikey=${process.env.REACT_APP_API_KEY}`)
             if(response.status===200 && !response.data.Error){
             setMovieData(response.data)
             }
