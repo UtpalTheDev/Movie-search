@@ -39,7 +39,9 @@ export function Search({page}){
             setPage(prev=>1) 
             searchCall(input)
         }}>
-        <input type="text" className="border border-gray-200 px-2 w-full max-w-xs py-1 rounded-l-md" value={input} onChange={(e)=>{handleInput(e.target.value)}}/>
+        <input type="text" className="border border-gray-200 px-2 w-full max-w-xs py-1 rounded-l-md focus:outline-none focus:ring-1 focus:ring-blue-300 focus:border-transparent" value={input} onChange={(e)=>{handleInput(e.target.value)}}
+        placeholder = "Search..."
+        />
         <button className="bg-blue-300 px-2 text-white font-semibold" type="submit">Search</button>
         </form>
         { input.length<3 && <div className="text-xs text-red-500 text-center">Enter atleast 2 letter to search </div>
